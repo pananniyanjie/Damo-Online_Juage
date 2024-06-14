@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * 
@@ -92,13 +92,13 @@ public class DbProblems implements Serializable {
      * 创建时间
      */
     @TableField(value = "gmt_create")
-    private Date gmtCreate;
+    private LocalDateTime gmtCreate;
 
     /**
      * 修改时间
      */
     @TableField(value = "gmt_modified")
-    private Date gmtModified;
+    private LocalDateTime gmtModified;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

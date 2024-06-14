@@ -8,5 +8,9 @@
 
 package org.hlkj.demo.param.problem;
 
-public class UpdataProblemParam {
+import lombok.Data;
+
+@Data
+public class UpdataProblemParam extends CreateProblemParam{
+    private Integer id;
 }

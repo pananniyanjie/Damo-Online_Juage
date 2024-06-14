@@ -6,21 +6,19 @@
  * /
  */
 
-package org.hlkj.demo.param.problem;
+package org.hlkj.demo.vo.problem;
 
 import lombok.Data;
 
 @Data
-public class CreateProblemParam {
-
-    private String title;
+public class ProblemVO {
+    private Long id;
     private String displayId;
+    private String title;
     private String description;
     private String inputDescription;
     private String outputDescription;
-    private String sample;
-    private Integer timeLimit;
-    private Integer memoryLimit;
     private String remarks;
-
+    private Long submitCount;
+    private Long acceptCount;
 }
