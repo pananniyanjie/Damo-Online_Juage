@@ -18,4 +18,5 @@ import org.hlkj.demo.common.domain.PageQueryParam;
 public class QueryPageParam extends PageQueryParam {
     private String searchStr;
     private Integer sum;
+
 }

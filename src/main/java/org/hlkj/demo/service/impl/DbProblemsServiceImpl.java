@@ -66,7 +66,15 @@ public class DbProblemsServiceImpl extends ServiceImpl<DbProblemsMapper, DbProbl
 
     @Override
     public PageResult<ProblemVO> pageQueryProblems(QueryPageParam param) {
-        Page<DbProblems> page = page(new Page<>(param.getPage(),param.getPageSize()),new LambdaQueryWrapper<DbProblems>().orderByDesc(DbProblems::getDisplayId));
+
+        Page<DbProblems> page = page(
+                new Page<>(param.getPage(),param.getPageSize()),
+                new LambdaQueryWrapper<DbProblems>()
+                        .and(param.getSearchStr() != null,item -> item.like(DbProblems::getDisplayId,param.getSearchStr())
+                                .or()
+                                .like(DbProblems::getTitle,param.getSearchStr()))
+                        .orderByAsc(DbProblems::getDisplayId)
+        );
 
         List<ProblemVO> collect = page.getRecords().stream().map(item -> {
             ProblemVO vo = new ProblemVO();
